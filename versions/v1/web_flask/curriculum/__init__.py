@@ -1,18 +1,16 @@
 #!/usr/bin/python3
-"""Initiation of the home package"""
-
+"""init module"""
 from flask import Blueprint
 import os
 import sys
 
 
-base_path = os.path.dirname(__file__)
-parent_path = os.path.abspath(os.path.join(base_path, '../../'))
-sys.path.append(parent_path)
+app_views_curriculum = Blueprint('app_views_curriculum', __name__, url_prefix='/curriculum',
+                           template_folder='templates',
+                           static_folder='static')
 
-app_views_home = Blueprint('app_view_home', __name__,
-                           url_prefix="/roofmarket",
-                         template_folder='templates',
-                         static_folder='static')
 
-from home.home import *
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
+from curriculum.curriculum import *
+
