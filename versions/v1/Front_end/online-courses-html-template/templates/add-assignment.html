@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Add Assignment{% endblock %}
+
+{% block style %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .go-back {
+            background-color: orangered;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .go-back:hover {
+            background-color: #7E1891;
+        }
+        .add-assignment-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        .add-assignment-container h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .add-assignment-container input,
+        .add-assignment-container textarea,
+        .add-assignment-container input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .add-assignment-container button {
+            padding: 12px 20px;
+            background-color: orangered;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .add-assignment-container button:hover {
+            background-color: #7E1891;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <button class="go-back" onclick="window.history.back();">Go Back</button>
+
+        <div class="add-assignment-container">
+            <h2>Add a New Assignment</h2>
+            <form>
+                <input type="text" placeholder="Assignment Title" required>
+                <textarea placeholder="Assignment Description" rows="5" required></textarea>
+                <input type="file" required>
+                <input type="date" required>
+                <button type="submit">Add Assignment</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

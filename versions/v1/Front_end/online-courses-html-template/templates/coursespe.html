@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% block title %}Courses{% endblock %}
+{% block content %}
+
+    <!-- Courses start in a specific program-->
+    <div class="container-fluid py-5" id="programs">
+        <div class="container py-5">
+            <!-- This can be used to replace just the following code showing program and course name -->
+
+            <!-- <div class="text-center mb-5"> -->
+                <!-- Give the name of the program the course is part of-->
+                <!-- <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;"> {{ program_name }} </h5> -->
+                <!-- Directly give the name of the course that the user has clicked on-->
+                <!-- <h1> {{ course_name }} </h1> -->
+            <!-- </div> -->
+
+            <!-- Here is the one to be removed in case you want to use jinja -->
+            <div class="text-center mb-5">
+                <!-- Give the name of the program the course is part of-->
+                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Program Name </h5>
+                <!-- Directly give the name of the course that the user has clicked on-->
+                <h1> Course name </h1>
+            </div>
+
+            <!-- Show all the courses in that specific course, for example: web design courses -->
+
+            <!-- This is the one that you should use in case you want to use jinja and remove all the remaining because we will use for loop -->
+            <!-- <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="rounded overflow-hidden mb-2">
+                        {% for course in program %}
+                        <img class="img-fluid" src="{{ course.img }}" alt="">
+                        <div class="bg-secondary p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>{{ course.students_number }}</small>
+                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>{{ course.duration }}</small>
+                            </div> -->
+                            <!-- The name of the course and creating a link to it once clicked will take the user to the page of that course.-->
+                            <!-- <a class="h5" href="./program.html">{{ course.name }}</a>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>{{ course.average_rating }} <small>{{ Number of ratings }}</small></h6>
+            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+
+            <!-- Then you will have to delete all that are following here, until where it is written centered learn more -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="rounded overflow-hidden mb-2">
+                        <img class="img-fluid" src="../static/img/course-1.jpg" alt="">
+                        <div class="bg-secondary p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25 Students</small>
+                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>
+                            </div>
+                            <a class="h5" href="./program.html">Web design & development courses for beginner</a>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="rounded overflow-hidden mb-2">
+                        <img class="img-fluid" src="../static/img/course-2.jpg" alt="">
+                        <div class="bg-secondary p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25 Students</small>
+                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>
+                            </div>
+                            <a class="h5" href="">Web design & development courses for beginner</a>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="rounded overflow-hidden mb-2">
+                        <img class="img-fluid" src="../static/img/course-3.jpg" alt="">
+                        <div class="bg-secondary p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25 Students</small>
+                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>
+                            </div>
+                            <a class="h5" href="">Web design & development courses for beginner</a>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="rounded overflow-hidden mb-2">
+                        <img class="img-fluid" src="../static/img/course-4.jpg" alt="">
+                        <div class="bg-secondary p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25 Students</small>
+                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>
+                            </div>
+                            <a class="h5" href="">Web design & development courses for beginner</a>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="rounded overflow-hidden mb-2">
+                        <img class="img-fluid" src="../static/img/course-5.jpg" alt="">
+                        <div class="bg-secondary p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25 Students</small>
+                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>
+                            </div>
+                            <a class="h5" href="">Web design & development courses for beginner</a>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="rounded overflow-hidden mb-2">
+                        <img class="img-fluid" src="../static/img/course-6.jpg" alt="">
+                        <div class="bg-secondary p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25 Students</small>
+                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>
+                            </div>
+                            <a class="h5" href="">Web design & development courses for beginner</a>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Centered Learn More Button -->
+            <div class="d-flex justify-content-center mt-4">
+                <a href="#" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold">See More</a>
+            </div>
+        </div>
+    </div>
+    <!-- Programs End -->
+{% endblock %}

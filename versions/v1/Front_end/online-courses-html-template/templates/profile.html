@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+{% block title %} Stunning Profile{% endblock %}
+
+{% block style %}
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+
+        /* Go Back Button */
+        .go-back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            border: 1px solid #6a11cb;
+            border-radius: 5px;
+            color: #6a11cb;
+            font-size: 14px;
+            text-decoration: none;
+            background: #fff;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .go-back:hover {
+            background: #6a11cb;
+            color: #fff;
+        }
+
+        .profile-container {
+            width: 100%;
+            max-width: 1200px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px; /* Add some space for the Go Back button */
+        }
+
+        /* Profile Header */
+        .profile-header {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .profile-header img {
+            border: 4px solid #fff;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+
+        .profile-header .user-details {
+            flex: 1;
+        }
+
+        .profile-header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .profile-header p {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        /* Profile Stats */
+        .profile-stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        .profile-stats .stat {
+            text-align: center;
+        }
+
+        .profile-stats .stat h3 {
+            font-size: 20px;
+            color: #6a11cb;
+        }
+
+        .profile-stats .stat p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Learning Progress */
+        .learning-progress {
+            padding: 20px;
+        }
+
+        .learning-progress h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            background: #f0f0f0;
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
+            height: 10px;
+            width: 100%;
+        }
+
+        .progress-bar .progress {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            height: 100%;
+            width: 65%;
+        }
+
+        .learning-progress p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .quick-actions a {
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #6a11cb;
+            border-radius: 5px;
+            color: #6a11cb;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .quick-actions a:hover {
+            background: #6a11cb;
+            color: #fff;
+        }
+
+        /* Logout Button */
+        .logout {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logout button {
+            background: #e74c3c;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .logout button:hover {
+            background: #c0392b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-header img {
+                margin-bottom: 10px;
+            }
+
+            .profile-stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .quick-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .profile-container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 60px auto 0; /* Margin for navbar spacing */
+    overflow: hidden;
+    padding-top: 20px;
+}
+
+.go-back {
+    position: relative; /* Remove `absolute` to align with content flow */
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+
+    </style>
+{% endblock %}
+
+{%block content %}
+    <button class="go-back" onclick="window.history.back();">Go Back</button>
+
+    <div class="profile-container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <img src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg" alt="Profile Picture">
+            <div class="user-details">
+                <h1 id="userName">John Doe</h1>
+                <p id="userEmail">johndoe@example.com</p>
+            </div>
+        </div>
+
+        <!-- Profile Stats -->
+        <div class="profile-stats">
+            <div class="stat">
+                <h3 id="userCourses">5</h3>
+                <p>Courses Enrolled</p>
+            </div>
+            <div class="stat">
+                <h3 id="userCertificates">2</h3>
+                <p>Certificates Earned</p>
+            </div>
+            <div class="stat">
+                <h3 id="userStreak">15 days</h3>
+                <p>Study Streak</p>
+            </div>
+        </div>
+
+        <!-- Learning Progress -->
+        <div class="learning-progress">
+            <h2>Learning Progress</h2>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <p>65% completed of your current course</p>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <a href="./view-students-courses.html">My Courses</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="settings.html">Settings</a>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="logout">
+            <button id="logoutButton">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        // Populate profile with dummy data
+        const userData = {
+            name: "John Doe",
+            email: "johndoe@example.com",
+            progress: 65,
+            courses: 5,
+            certificates: 2,
+            streak: "15 days"
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("userName").textContent = userData.name;
+            document.getElementById("userEmail").textContent = userData.email;
+            document.getElementById("userCourses").textContent = userData.courses;
+            document.getElementById("userCertificates").textContent = userData.certificates;
+            document.getElementById("userStreak").textContent = userData.streak;
+
+            const progress = document.querySelector(".progress");
+            progress.style.width = `${userData.progress}%`;
+        });
+    </script>
+{% endblock %}
+
+

@@ -1,0 +1,291 @@
+{% extends "base.html" %}
+{% block title %}Teacher Profile{% endblock %}
+
+{% block style %}
+<style>
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 80px auto 20px; /* Ensure space below navbar */
+        padding: 20px;
+    }
+
+    /* Profile Container */
+    .profile-container {
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    /* Profile Header */
+    .profile-header {
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        padding: 40px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .profile-header img {
+        border: 4px solid #fff;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        margin-bottom: 15px;
+    }
+
+    .profile-header h1 {
+        font-size: 26px;
+        margin-bottom: 5px;
+    }
+
+    .profile-header p {
+        font-size: 16px;
+    }
+
+    /* Profile Stats */
+    .profile-stats {
+        display: flex;
+        justify-content: space-around;
+        background: #f9f9f9;
+        padding: 20px 0;
+        border-top: 1px solid #ddd;
+    }
+
+    .profile-stats .stat {
+        text-align: center;
+    }
+
+    .profile-stats .stat h3 {
+        font-size: 24px;
+        color: #6a11cb;
+        margin-bottom: 5px;
+    }
+
+    .profile-stats .stat p {
+        font-size: 14px;
+        color: #555;
+    }
+
+    /* Teacher Section */
+    .teacher-section {
+        padding: 20px;
+    }
+
+    .teacher-section h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: #333;
+        border-bottom: 2px solid #6a11cb;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .teacher-stat {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        padding: 10px;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
+    .teacher-stat p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    .teacher-stat h3 {
+        font-size: 18px;
+        color: #6a11cb;
+    }
+
+    /* Quick Actions */
+    .quick-actions {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 20px 0;
+    }
+
+    .quick-actions a {
+        text-decoration: none;
+        padding: 10px 20px;
+        border: 2px solid #6a11cb;
+        border-radius: 5px;
+        color: #6a11cb;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+
+    .quick-actions a:hover {
+        background: #6a11cb;
+        color: #fff;
+    }
+
+    /* Logout Button */
+    .logout {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .logout button {
+        background: #e74c3c;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    .logout button:hover {
+        background: #c0392b;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .profile-stats {
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .quick-actions {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    .go-back {
+    position: relative; /* Remove `absolute` to align with content flow */
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+        .go-back {
+            position: sticky;
+            top: 200px;
+            left: 20px;
+            padding: 10px 20px;
+            border: 1px solid #6a11cb;
+            border-radius: 5px;
+            color: #6a11cb;
+            font-size: 14px;
+            text-decoration: none;
+            background: #fff;
+            transition: all 0.3s;
+            cursor: pointer;
+            z-index: 30;
+        }
+
+        .go-back:hover {
+            background: #6a11cb;
+            color: #fff;
+        }
+</style>
+{% endblock %}
+
+{% block content %}
+<button class="go-back" onclick="window.history.back();">Go Back</button>
+
+<div class="container">
+    <div class="profile-container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png" alt="Profile Picture">
+            <h1 id="userName">Dr. John Smith</h1>
+            <p id="userEmail">johnsmith@example.com</p>
+        </div>
+
+        <!-- Profile Stats -->
+        <div class="profile-stats">
+            <div class="stat">
+                <h3 id="userCourses">8</h3>
+                <p>Courses Taught</p>
+            </div>
+            <div class="stat">
+                <h3 id="userStudents">150</h3>
+                <p>Students Enrolled</p>
+            </div>
+            <div class="stat">
+                <h3 id="userAssignments">12</h3>
+                <p>Assignments Given</p>
+            </div>
+        </div>
+
+        <!-- Teacher's Assignments and Resources -->
+        <div class="teacher-section">
+            <h2>Assignments & Resources</h2>
+            <div class="teacher-stat">
+                <p>Total Resources Available</p>
+                <h3>5</h3>
+            </div>
+            <div class="teacher-stat">
+                <p>Assignments Pending</p>
+                <h3>2</h3>
+            </div>
+            <div class="teacher-stat">
+                <p>Student Progress</p>
+                <h3>80%</h3>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <a href="my-courses.html">My Courses</a>
+            <a href="teacher-create-course.html">Create Course</a>
+            <a href="settings.html">Settings</a>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="logout">
+            <button id="logoutButton">Logout</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const userData = {
+        name: "Dr. John Smith",
+        email: "johnsmith@example.com",
+        courses: 8,
+        students: 150,
+        assignments: 12,
+        resources: 5,
+        pendingAssignments: 2,
+        progress: 80
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("userName").textContent = userData.name;
+        document.getElementById("userEmail").textContent = userData.email;
+        document.getElementById("userCourses").textContent = userData.courses;
+        document.getElementById("userStudents").textContent = userData.students;
+        document.getElementById("userAssignments").textContent = userData.assignments;
+
+        const teacherStats = document.querySelectorAll(".teacher-stat h3");
+        teacherStats[0].textContent = userData.resources;
+        teacherStats[1].textContent = userData.pendingAssignments;
+        teacherStats[2].textContent = `${userData.progress}%`;
+    });
+</script>
+{% endblock %}
+

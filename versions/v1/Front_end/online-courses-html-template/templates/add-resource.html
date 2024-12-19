@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}Add Resource{% endblock %}
+
+{% block style %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .go-back {
+            background-color: orangered;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .go-back:hover {
+            background-color: #E73879;
+        }
+        .add-resource-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        .add-resource-container h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .add-resource-container input,
+        .add-resource-container textarea,
+        .add-resource-container select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .add-resource-container button {
+            padding: 12px 20px;
+            background-color: orangered;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .add-resource-container button:hover {
+            background-color: #E73879;
+        }
+
+        #files button {
+            color: orangered;
+        }
+
+        /* Hide the default file input */
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Style the custom label */
+        .custom-label {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white; /* Text color for "Choose File" */
+            background-color: orangered; /* Background color for the button */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            border: 1px solid purple;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Hover effect */
+        .custom-label:hover {
+            background-color: #E73879;
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <button class="go-back" onclick="window.history.back();">Go Back</button>
+
+        <div class="add-resource-container">
+            <h2>Add a New Resource</h2>
+            <form>
+                <input type="text" placeholder="Resource Title" name="title" required>
+                <textarea placeholder="Resource Description" rows="5" name="description" required></textarea>
+                <div class="custom-file-upload">
+                    <label for="files" class="custom-label">Choose File</label>
+                    <input id="files" type="file" required>
+                </div>
+
+                <button type="submit">Add Resource</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
