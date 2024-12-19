@@ -23,4 +23,15 @@ create TaskAnswer task_id="" link="task/resources/one"
 # create UserQuiz
 * create UserQuiz user_id="9566ffb2-1df8-496f-8f13-972bdf2f60ab" quiz_id="e4252789-f8b1-46cc-b10d-53973c774057" score=100
 
+# Update version
+* Open Nginx config file : sudo nano /etc/nginx/sites-available/default
+* Update line : set $backend blue
+* text nginx : sudo nginx -t
+* restart nginx : sudo systemctl restart nginx
+* visit localhost : http://localhost
+
+# Run all test cases
+* ECOURSE_ENV=test python3 -m unittest discover tests
+
+# 
 

@@ -2,30 +2,37 @@
 """
 console module
 """
-
+from os import getenv
+import importlib
 import cmd
-from models.base_model import BaseModel
-from models.models import User
-from models.models import Program
-from models.models import Course
-from models.models import Project
-from models.models import Enrollment
-from models.models import Resource
-from models.models import Task
-from models.models import TaskAnswer
-from models.models import UserTask
-from models.models import Quiz
-from models.models import Answer
-from models.models import UserQuiz
 
-from models import storage
+version = "v1"
+
+storage_module = importlib.import_module(f"versions.{version}.models")
+storage = getattr(storage_module, "storage")
+base_model_module = importlib.import_module(f"versions.{version}.models.base_model")
+BaseModel = getattr(base_model_module, "BaseModel")
+Base = getattr(base_model_module, "Base")
+
+User = importlib.import_module(f"versions.{version}.models.models").User
+Program = importlib.import_module(f"versions.{version}.models.models").Program
+Course = importlib.import_module(f"versions.{version}.models.models").Course
+Project = importlib.import_module(f"versions.{version}.models.models").Project
+Enrollment = importlib.import_module(f"versions.{version}.models.models").Enrollment
+Resource = importlib.import_module(f"versions.{version}.models.models").Resource
+Task = importlib.import_module(f"versions.{version}.models.models").Task
+TaskAnswer = importlib.import_module(f"versions.{version}.models.models").TaskAnswer
+UserTask = importlib.import_module(f"versions.{version}.models.models").UserTask
+Quiz = importlib.import_module(f"versions.{version}.models.models").Quiz
+Answer = importlib.import_module(f"versions.{version}.models.models").Answer
+UserQuiz = importlib.import_module(f"versions.{version}.models.models").UserQuiz
 
 import sys
 import shlex
 
 
 
-class ROOFMARKETCommand(cmd.Cmd):
+class ECOURSECommand(cmd.Cmd):
     """Console class"""
     prompt = '(RoofMarket) ' if sys.__stdin__.isatty() else ''
     classes = {
@@ -60,7 +67,7 @@ class ROOFMARKETCommand(cmd.Cmd):
                 if not args:
                     print("** class doesn't exist **")
                     return
-                elif arguments[0] not in ROOFMARKETCommand.classes:
+                elif arguments[0] not in ECOURSECommand.classes:
                     print("** class doesn't exist **")
                     return
                 new_instance = globals()[arguments[0]]()
@@ -85,7 +92,7 @@ class ROOFMARKETCommand(cmd.Cmd):
         if not args:
             print("** class doesn't exist **")
             return
-        elif arguments[0] not in ROOFMARKETCommand.classes:
+        elif arguments[0] not in ECOURSECommand.classes:
             print("** class doesn't exist **")
             return
         elif len(arguments) == 1:
@@ -113,4 +120,4 @@ class ROOFMARKETCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    ROOFMARKETCommand().cmdloop()
+    ECOURSECommand().cmdloop()
