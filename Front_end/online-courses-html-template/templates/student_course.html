@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block title %}Course Management{% endblock %}
-
 {% block style %}
     <style>
         body {
@@ -17,7 +16,7 @@
         }
 
         .go-back {
-            background-color: orangered;
+            background-color: #6a11cb;
             color: #fff;
             padding: 12px 25px;
             border: none;
@@ -27,7 +26,7 @@
         }
 
         .go-back:hover {
-            background-color: purple;
+            background-color: orangered;
         }
 
         .course-container {
@@ -74,7 +73,7 @@
 
         .action-card i {
             font-size: 40px;
-            color: orangered;
+            color: #6a11cb;
             margin-bottom: 15px;
         }
 
@@ -109,7 +108,7 @@
 
         .card a {
             text-decoration: none;
-            background-color: orangered;
+            background-color: #6a11cb;
             color: #fff;
             padding: 10px 20px;
             border-radius: 8px;
@@ -117,13 +116,11 @@
         }
 
         .card a:hover {
-            background-color: purple;
-            color: #f1f1f1;
+            background-color: #2575fc;
         }
 
     </style>
 {% endblock %}
-
 {% block content %}
     <div class="container">
         <button class="go-back" onclick="window.history.back();">Go Back</button>
@@ -137,29 +134,6 @@
                 <strong>Course Description:</strong> An introductory course in computer science, covering the basics of programming, algorithms, and data structures. <br>
                 <strong>Semester:</strong> Spring 2024 <br>
                 <strong>Enrolled Students:</strong> 30
-            </div>
-
-            <div class="course-actions">
-                <!-- Upload Resource -->
-                <div class="action-card" onclick="window.location.href = './add-resource.html';">
-                    <i class="fas fa-upload"></i>
-                    <span>Upload Resource</span>
-                    <p>Share course materials with your students</p>
-                </div>
-
-                <!-- Assign Assignment -->
-                <div class="action-card" onclick="window.location.href = './add-assignment.html';">
-                    <i class="fas fa-pencil-alt"></i>
-                    <span>Assign Assignment</span>
-                    <p>Create and assign homework or projects</p>
-                </div>
-
-                <!-- Grade Students -->
-                <div class="action-card" onclick="window.location.href = './grade-students.html';">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>Grade Students</span>
-                    <p>Grade students' assignments and exams</p>
-                </div>
             </div>
 
             <div class="manage-section">

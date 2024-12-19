@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% block titlte %}Teacher Dashboard{% endblock %}
+
+{% block style %}
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            color: #495057;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #495057;
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #6c63ff;
+            box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+            outline: none;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        button {
+            background: #6c63ff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #5a55d6;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            input, select, textarea {
+                font-size: 12px;
+            }
+
+            button {
+                font-size: 12px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Create Course or Program</h1>
+
+        <div class="form-group">
+            <label for="typeSelection">What are you creating?</label>
+            <select id="typeSelection">
+                <option value="">Select an option</option>
+                <option value="course">Course</option>
+                <option value="program">Program</option>
+            </select>
+        </div>
+
+        <form id="courseForm" class="hidden">
+            <div class="form-group">
+                <label for="courseName">Course Name</label>
+                <input type="text" id="courseName" placeholder="Enter the course name">
+            </div>
+            <div class="form-group">
+                <label for="courseDescription">Course Description</label>
+                <textarea id="courseDescription" placeholder="Describe the course"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="courseDuration">Course Duration (weeks)</label>
+                <input type="number" id="courseDuration" placeholder="Enter duration in weeks">
+            </div>
+            <div class="actions">
+                <button type="button" onclick="submitForm('course')">Create Course</button>
+            </div>
+        </form>
+
+        <form id="programForm" class="hidden">
+            <div class="form-group">
+                <label for="programName">Program Name</label>
+                <input type="text" id="programName" placeholder="Enter the program name">
+            </div>
+            <div class="form-group">
+                <label for="programDescription">Program Description</label>
+                <textarea id="programDescription" placeholder="Describe the program"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="numberOfCourses">Number of Courses</label>
+                <input type="number" id="numberOfCourses" placeholder="Enter number of courses in the program">
+            </div>
+            <div class="actions">
+                <button type="button" onclick="submitForm('program')">Create Program</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Form visibility logic
+        document.getElementById("typeSelection").addEventListener("change", function () {
+            const courseForm = document.getElementById("courseForm");
+            const programForm = document.getElementById("programForm");
+
+            courseForm.classList.toggle("hidden", this.value !== "course");
+            programForm.classList.toggle("hidden", this.value !== "program");
+        });
+
+        // Form submission logic
+        function submitForm(type) {
+            if (type === "course") {
+                const courseName = document.getElementById("courseName").value;
+                const courseDescription = document.getElementById("courseDescription").value;
+                const courseDuration = document.getElementById("courseDuration").value;
+
+                if (courseName && courseDescription && courseDuration) {
+                    alert(`Course Created!\nName: ${courseName}\nDescription: ${courseDescription}\nDuration: ${courseDuration} weeks`);
+                } else {
+                    alert("Please fill all fields for the course.");
+                }
+            } else if (type === "program") {
+                const programName = document.getElementById("programName").value;
+                const programDescription = document.getElementById("programDescription").value;
+                const numberOfCourses = document.getElementById("numberOfCourses").value;
+
+                if (programName && programDescription && numberOfCourses) {
+                    alert(`Program Created!\nName: ${programName}\nDescription: ${programDescription}\nNumber of Courses: ${numberOfCourses}`);
+                } else {
+                    alert("Please fill all fields for the program.");
+                }
+            }
+        }
+    </script>
+{% endblock %}
+
