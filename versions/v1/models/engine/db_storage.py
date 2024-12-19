@@ -37,14 +37,14 @@ class DBStorage:
     def __init__(self):
         """Contructor method
         """
-        env = getenv("ECOURSE_ENV")
-        db = 'ecourse_db'
+        env = getenv("EDUPATHWAY_ENV")
+        db = 'edupathway_db'
 
         if env == 'test':
-            db = 'ecourse_test_db'
+            db = 'edupathway_test_db'
 
         self.__engine = create_engine(
-                    'mysql+mysqldb://ecourse_user:ecourse_pwd@localhost/{}'.format(db),
+                    'mysql+mysqldb://edupathway_user:edupathway_pwd@localhost/{}'.format(db),
                     pool_pre_ping=True)
 
 
