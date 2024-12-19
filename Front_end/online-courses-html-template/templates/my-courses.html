@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}My Courses{% endblock %}
+
+{% block style %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .go-back {
+            background-color: orangered;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .go-back:hover {
+            background-color: purple;
+        }
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .course {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .course:hover {
+            transform: translateY(-10px);
+        }
+        .course h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .course p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .course .progress {
+            font-weight: bold;
+            color: #6a11cb;
+        }
+
+        
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="course">
+    <a href="./teacher_course.html"><h3>Introduction to Data Science</h3></a>
+    <p>Enrolled Students: 30</p>
+    <div class="progress-bar">
+        <div class="progress-fill" style="width: 65%;">
+            <span>65%</span>
+        </div>
+    </div>
+</div>
+<div class="course">
+    <a href="./teacher_course.html"><h3>Web Development</h3></a>
+    <p>Enrolled Students: 25</p>
+    <div class="progress-bar">
+        <div class="progress-fill" style="width: 75%;">
+            <span>75%</span>
+        </div>
+    </div>
+</div>
+<div class="course">
+    <a href="./teacher_course.html"><h3>Advanced Python Programming</h3></a>
+    <p>Enrolled Students: 20</p>
+    <div class="progress-bar">
+        <div class="progress-fill" style="width: 85%;">
+            <span>85%</span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

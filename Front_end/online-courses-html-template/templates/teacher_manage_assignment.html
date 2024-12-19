@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}Manage Assignments{% endblock %}
+
+{% block style %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .go-back {
+            background-color: #6a11cb;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .go-back:hover {
+            background-color: #2575fc;
+        }
+
+        .assignments-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .assignments-container h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .assignment-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .assignment-card button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .assignment-card button:hover {
+            background-color: #c0392b;
+        }
+
+        .add-assignment {
+            background-color: #6a11cb;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 30px;
+        }
+
+        .add-assignment:hover {
+            background-color: #2575fc;
+        }
+
+        .deadline {
+            font-style: italic;
+            color: #333;
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <button class="go-back" onclick="window.history.back();">Go Back</button>
+
+        <div class="assignments-container">
+            <h2>Manage Assignments</h2>
+
+            <!-- Example Assignment List -->
+            <div class="assignment-card">
+                <div>
+                    <strong>Assignment 1: Introduction to Programming</strong><br>
+                    <span class="deadline">Deadline: 2024-12-31</span>
+                </div>
+                <div>
+                    <button>Edit</button>
+                    <button>Remove</button>
+                </div>
+            </div>
+
+            <div class="assignment-card">
+                <div>
+                    <strong>Assignment 2: Data Structures</strong><br>
+                    <span class="deadline">Deadline: 2025-01-15</span>
+                </div>
+                <div>
+                    <button>Edit</button>
+                    <button>Remove</button>
+                </div>
+            </div>
+
+            <!-- Add New Assignment Button -->
+            <button class="add-assignment" onclick="window.location.href = './add-assignment.html';">Add New Assignment</button>
+        </div>
+    </div>
+{% endblock %}

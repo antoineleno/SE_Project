@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}My Courses{% endblock %}
+
+{% block style %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .go-back {
+            background-color: #6a11cb;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .go-back:hover {
+            background-color: #2575fc;
+        }
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .course {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .course:hover {
+            transform: translateY(-10px);
+        }
+        .course h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .course p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .course .progress {
+            font-weight: bold;
+            color: #6a11cb;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <button class="go-back" onclick="window.history.back();">Go Back</button>
+
+        <div class="course-list">
+            <div class="course">
+                <a href="./student_course.html"><h3>Introduction to Data Science</h3></a>
+                <p>Enrolled Students: 30</p>
+                <p>Progress: <span class="progress">65%</span></p>
+            </div>
+            <div class="course">
+                <a href="./student_course.html"><h3>Web Development</h3></a>
+                <p>Enrolled Students: 25</p>
+                <p>Progress: <span class="progress">75%</span></p>
+            </div>
+            <div class="course">
+                <a href="./student_course.html"><h3>Advanced Python Programming</h3></a>
+                <p>Enrolled Students: 20</p>
+                <p>Progress: <span class="progress">85%</span></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
