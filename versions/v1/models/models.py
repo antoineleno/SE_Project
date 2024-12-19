@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """User module"""
-from versions.v1.models.base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Boolean, Text, ForeignKey, Integer
 from sqlalchemy.orm import relationship
 from flask_login import UserMixin

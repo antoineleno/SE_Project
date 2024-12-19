@@ -6,19 +6,19 @@ import sys
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
-from versions.v1.models.base_model import Base, BaseModel
-from versions.v1.models.models import User
-from versions.v1.models.models import Program
-from versions.v1.models.models import Course
-from versions.v1.models.models import Project
-from versions.v1.models.models import Enrollment
-from versions.v1.models.models import Resource
-from versions.v1.models.models import Task
-from versions.v1.models.models import TaskAnswer
-from versions.v1.models.models import UserTask
-from versions.v1.models.models import Quiz
-from versions.v1.models.models import Answer
-from versions.v1.models.models import UserQuiz
+from models.base_model import Base, BaseModel
+from models.models import User
+from models.models import Program
+from models.models import Course
+from models.models import Project
+from models.models import Enrollment
+from models.models import Resource
+from models.models import Task
+#from models import TaskAnswer
+from models.models import UserTask
+from models.models import Quiz
+from models.models import Answer
+from models.models import UserQuiz
 
 base_dir = os.path.dirname(__file__)
 parent_dir = os.path.join(base_dir, '..', '..')
